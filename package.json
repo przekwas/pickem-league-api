@@ -1,0 +1,30 @@
+{
+  "name": "scott-stapp-pickem-api",
+  "version": "1.0.0",
+  "description": "API for my Site",
+  "main": "server/server.js",
+  "scripts": {
+    "dev": "set NODE_ENV=development&&nodemon -r esm server/server.js",
+    "start": "node -r esm server/server.js"
+  },
+  "author": "Luke",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^3.0.6",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "esm": "^3.2.25",
+    "express": "^4.17.1",
+    "helmet": "^3.18.0",
+    "jsonwebtoken": "^8.5.1",
+    "knex": "^0.17.6",
+    "morgan": "^1.9.1",
+    "mysql": "^2.17.1",
+    "passport": "^0.4.0",
+    "passport-http-bearer": "^1.0.1",
+    "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
+}
