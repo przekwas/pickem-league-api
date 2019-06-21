@@ -11,7 +11,7 @@ router.get('/:id?', async (req, res) => {
             res.json(team);
         } catch (error) {
             console.log(error);
-            res.sendStatus(500);
+            res.status(500).json('Uh oh! Luke\'s code sucks.  Let him know!');
         }
     } else {
         try {
@@ -19,7 +19,7 @@ router.get('/:id?', async (req, res) => {
             res.json(teams);
         } catch (error) {
             console.log(error);
-            res.sendStatus(500);
+            res.status(500).json('Uh oh! Luke\'s code sucks.  Let him know!');
         }
     }
 });

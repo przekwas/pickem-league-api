@@ -6,6 +6,8 @@ import compression from 'compression';
 import passport from 'passport';
 import routes from './routes';
 
+import './utils/middleware/localstrategy';
+
 const app = express();
 
 app.use(cors());

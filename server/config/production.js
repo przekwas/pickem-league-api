@@ -7,5 +7,8 @@ export default {
             password: process.env.KNEX_PASS,
             database: process.env.KNEX_DB
         }
+    },
+    auth: {
+        secret: process.env.JWT_SECRET
     }
 }
