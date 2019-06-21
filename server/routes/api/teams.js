@@ -3,15 +3,7 @@ import queries from '../../db';
 
 const router = Router();
 
-const isGuest = (req, res, next) => {
-    if (!req.user || req.user.role !== 'guest') {
-        return res.sendStatus(401);
-    } else {
-        return next();
-    }
-};
-
-router.get('/:id?', isGuest, async (req, res) => {
+router.get('/:id?', async (req, res) => {
     let id = req.params.id;
     if (id) {
         try {
