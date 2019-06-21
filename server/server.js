@@ -7,6 +7,7 @@ import passport from 'passport';
 import routes from './routes';
 
 import './utils/middleware/localstrategy';
+import './utils/middleware/bearerstrategy';
 
 const app = express();
 
