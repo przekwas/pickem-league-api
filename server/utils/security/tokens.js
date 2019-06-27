@@ -1,5 +1,4 @@
 import jwt from 'jsonwebtoken';
-import crypto from 'crypto';
 
 import config from '../../config';
 import queries from '../../db';
@@ -13,7 +12,6 @@ const generateExpireDate = () => {
 export const createToken = async (payload) => {
     let [resultId] = await queries.tokens.insertUserid({ user_id: payload.userid });
     payload.accesstokenid = resultId;
-    payload.unique = crypto.randomBytes(32).toString('hex');
     let token = await jwt.sign(payload, config.auth.secret);
     let _expires = generateExpireDate();
     await queries.tokens.updateWithToken(payload.accesstokenid, { token, _expires });

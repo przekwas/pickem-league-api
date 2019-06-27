@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import queries from '../../db';
+import { isAdmin } from '../../utils/middleware/routerMiddleware';
 
 const router = Router();
 
@@ -9,6 +10,17 @@ router.get('/:weekid', async (req, res) => {
     try {
         let gamesForTheWeek = await queries.games.gamesForWeek(weekid);
         res.json(gamesForTheWeek);
+    } catch (error) {
+        console.log(error);
+        res.status(500).json('Uh oh! Luke\'s code sucks.  Let him know!');
+    }
+});
+
+// admin can add a week's games
+router.post('/', isAdmin, async (req, res) => {
+    try {
+        await queries.games.insert(req.body);
+        res.json('Games added!');
     } catch (error) {
         console.log(error);
         res.status(500).json('Uh oh! Luke\'s code sucks.  Let him know!');
