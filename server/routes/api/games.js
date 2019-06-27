@@ -27,4 +27,26 @@ router.post('/', isAdmin, async (req, res) => {
     }
 });
 
+router.put('/', isAdmin, async (req, res) => {
+    try {
+        await queries.games.update(req.body);
+        res.json('Game edited!');
+    } catch (error) {
+        console.log(error);
+        res.status(500).json('Uh oh! Luke\'s code sucks.  Let him know!');
+
+    }
+});
+
+router.delete('/', isAdmin, async (req, res) => {
+    try {
+        await queries.games.update(req.body);
+        res.json('Game deleted!');
+    } catch (error) {
+        console.log(error);
+        res.status(500).json('Uh oh! Luke\'s code sucks.  Let him know!');
+
+    }
+});
+
 export default router;
